@@ -16,8 +16,6 @@ void setup() {
   pinMode(outRed, OUTPUT);
   pinMode(outGreen, OUTPUT);
   pinMode(outBlue, OUTPUT);
-
-
 }
 
 
