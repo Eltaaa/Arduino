@@ -7,21 +7,24 @@ char keys[row_size][col_size] = {
   { '*', '0', '#', 'D' }
 };
 
-char row_pin[row_size] = { 9, 8, 7, 6 };
-char col_pin[col_size] = { 5, 4, 3, 2 };
+char row_pin[row_size] = { 8, 9, 2, 3 };
+char col_pin[col_size] = { 4, 5, 6, 7 };
 
+int red = 11;
+int green = 12;
+int blue = 13;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(9, INPUT);
-  pinMode(8, INPUT);
-  pinMode(7, INPUT);
-  pinMode(6, INPUT);
+  pinMode(0, INPUT);
+  pinMode(1, INPUT);
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
 
-  pinMode(5, OUTPUT);
   pinMode(4, OUTPUT);
-  pinMode(3, OUTPUT);
-  pinMode(2, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
 
 
   // pinMode(red, OUTPUT);
@@ -62,7 +65,7 @@ char getKey() {
     digitalWrite(col_pin[c], LOW);  // Rapidly turn on each column
     for (int r = 0; r < row_size; r++) {
       if (digitalRead(row_pin[r]) == LOW) {
-        delay(100);
+        delay(50);
         x = keys[r][c];
       }
     }
